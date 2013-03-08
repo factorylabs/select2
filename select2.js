@@ -1,4 +1,17 @@
 /*
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # # # # # # # # This version of Selec2 contains modifications # # # # # # # # # #
+ # # # # # # # # specific to usage in a FDL project. This version  # # # # # # # #
+ # # # # # # # # is only temporary.                                # # # # # # # #
+ # # # # # # # # Forked at https://github.com/factorylabs/select2  # # # # # # # #
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 Copyright 2012 Igor Vaynberg
 
 Version: @@ver@@ Timestamp: @@timestamp@@
@@ -1170,7 +1183,9 @@ the specific language governing permissions and limitations under the Apache Lic
             this.results.empty();
             this.clearSearch();
 
-            this.opts.element.trigger($.Event("close"));
+            // This non-namespaced event is interfering with other things.
+            // Making it go away...
+            // this.opts.element.trigger($.Event("close"));
         },
 
         // abstract
