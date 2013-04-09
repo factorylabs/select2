@@ -2172,6 +2172,11 @@ the specific language governing permissions and limitations under the Apache Lic
             this.search.bind("keyup", this.bind(this.resizeSearch));
 
             this.search.bind("blur", this.bind(function(e) {
+                // selectOnBlur did not seem to function for searches, hence copying the logic from lines 1119/1476
+                // that check if the option is set and calling selectHighlighted manually.
+                if (this.opts.selectOnBlur) {
+                    this.selectHighlighted({noFocus: true});
+                }
                 this.container.removeClass("select2-container-active");
                 this.search.removeClass("select2-focused");
                 if (!this.opened()) this.clearSearch();
